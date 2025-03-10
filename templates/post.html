@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p><strong>Author:</strong> {{ post.author }}</p>
+    <p>{{ post.content }}</p>
+    <a href="{{ url_for('update', post_id=post.id) }}">Edit Post</a>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

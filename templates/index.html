@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome to Neha's Blog Posts!</h1>
+    <a href="{{ url_for('add') }}">Add New Post</a>
+
+    {% for post in posts %}
+        <div class="Post">
+        <h2>{{ post.title }}</h2>
+        <p><strong>Author:</strong> {{ post.author }}</p>
+        <p>{{ post.content }}</p>
+            <p><strong>Likes:</strong> {{post.likes}}</p>  <!-- Display the number of likes-->
+            <small>Post ID: {{ post.id }}</small>
+              <!--Update Button-->
+          <a href="{{ url_for('show_post', post_id=post.id) }}">View Post</a>
+              <a href="{{ url_for('update', post_id=post.id) }}">Update</a>
+         <!--Delete Button-->
+           <form action="{{ url_for('delete', post_id=post.id) }}" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+
+   {% endfor %}
+        {% if not posts %}
+            <p>No blog posts available.</p>
+        {% endif %}
+
+</body>
+</html>
