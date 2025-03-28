@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import json
 import os
+import uuid    #for unique id generation
 
 app = Flask(__name__)
 
@@ -39,9 +40,13 @@ def index():
 @app.route('/add', methods=["GET", "POST"])
 def add():
     if request.method == "POST":
-        author = request.form.get('author')
-        title = request.form.get('title')
-        content = request.form.get('content')
+        author = request.form.get('author').strip()
+        title = request.form.get('title').strip()
+        content = request.form.get('content').strip()
+
+        # Validate inputs
+        if not title or not content:
+            return "<h1>Error: Title and Content cannot be empty!</h1>", 400
 
         blog_posts = load_blog_posts()
         new_post = {
@@ -75,9 +80,13 @@ def update(post_id):
         return "<h1>404 - Post Not Found</h1>", 404
 
     if request.method == "POST":
-        post['author'] = request.form['author']
-        post['title'] = request.form['title']
-        post['content'] = request.form['content']
+        post['author'] = request.form['author'].strip()
+        post['title'] = request.form['title'].strip()
+        post['content'] = request.form['content'].strip()
+
+        if not post['title'] or not post['content']:
+            return "<h1>Error: Title and Content cannot be empty!</h1>", 400
+
         save_blog_posts(posts)
         return redirect(url_for('index'))
 

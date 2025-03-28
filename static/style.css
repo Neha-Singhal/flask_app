@@ -1,27 +1,106 @@
+/* General Page Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #F5F5F5;
-    padding: 20px;
+    background-color: #f9f9f9;
     color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 h1 {
-    text-align: center;
-    color: #4F4F4F;
+    margin: 0;
 }
 
+.add-btn {
+    text-decoration: none;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+/* Blog Post Container */
 .post {
-    background-color: #FFF;
-    border: 1px solid #DDD;
-    padding: 20px;
-    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    margin: 20px auto;
+    width: 60%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    text-align: left;
 }
 
 .post h2 {
-    margin-top: 0;
+    color: #333;
+    margin-bottom: 5px;
 }
 
-.post p {
-    margin: 10px 0;
+.author, .content {
+    font-size: 16px;
+    color: #555;
+}
+
+.likes {
+    font-size: 14px;
+    color: red;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.actions a, .actions button {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Button Colors */
+.view-btn {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.actions a:hover {
+    opacity: 0.8;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* No Posts Message */
+.no-posts {
+    font-size: 18px;
+    color: gray;
 }

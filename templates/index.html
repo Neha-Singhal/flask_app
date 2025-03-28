@@ -13,10 +13,10 @@
     {% for post in posts %}
         <div class="Post">
         <h2>{{ post.title }}</h2>
-        <p><strong>Author:</strong> {{ post.author }}</p>
-        <p>{{ post.content }}</p>
-            <p><strong>Likes:</strong> {{post.likes}}</p>  <!-- Display the number of likes-->
-            <small>Post ID: {{ post.id }}</small>
+        <p class="author"><strong>Author:</strong> {{ post.author }}</p>
+        <p class="content">{{ post.content }}</p>
+            <p class="likes"><strong>Likes:</strong> {{post.likes}}</p>  <!-- Display the number of likes-->
+
               <!--Update Button-->
           <a href="{{ url_for('show_post', post_id=post.id) }}">View Post</a>
               <a href="{{ url_for('update', post_id=post.id) }}">Update</a>

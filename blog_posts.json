@@ -1,26 +1,23 @@
 [
     {
-        "id": 1,
-        "author": "Neha Singhal",
-        "title": "First Post",
-        "content": "This is my first post."
-    },
-    {
         "id": 2,
         "author": "John Doe",
         "title": "Second Post",
-        "content": "This is my second post."
-    },
-    {
-        "id": 3,
-        "author": "neha",
-        "title": "masterschool",
-        "content": "programming"
+        "content": "This is my second post.",
+        "likes": 0
     },
     {
         "id": 4,
         "author": "Ronaldo",
         "title": "Football match",
-        "content": "Victory"
+        "content": "shewwww",
+        "likes": 0
+    },
+    {
+        "id": 3,
+        "author": "Messy",
+        "title": "football",
+        "content": "My favorite player",
+        "likes": 0
     }
 ]
