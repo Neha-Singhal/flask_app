@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import json
 import os
-import uuid    #for unique id generation
 
 app = Flask(__name__)
 
@@ -21,6 +20,13 @@ def load_blog_posts():
 def save_blog_posts(posts):
     with open("blog_posts.json", "w") as file:
         json.dump(posts, file, indent=4)
+
+
+def get_next_id(posts):
+    if not posts:
+        return  1
+    return max(post['id']for post in posts) + 1
+
 
 # Fetch a blog post by ID
 def fetch_post_by_id(post_id):
@@ -50,7 +56,7 @@ def add():
 
         blog_posts = load_blog_posts()
         new_post = {
-            "id": len(blog_posts) + 1,  # Assign a new ID
+            "id": get_next_id(blog_posts) + 1,  # Assign a new ID
             "author": author,
             "title": title,
             "content": content,
